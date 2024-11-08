@@ -8,9 +8,39 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'bgGradient': ' url("/line.svg"), linear-gradient(180deg, #FF9F9F 0%, #CE2528 100%)',
+        'curvelinebackground': "url('/BG Line Objects.png')", 
+     
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        primary: "#CE2528",
+        secondary:"#FF9F9F",
+       
+      },
+      keyframes: {
+        'accordion-down': {
+          from: {
+            height: '0',
+          },
+          to: {
+            height: 'var(--radix-accordion-content-height)',
+          },
+        },
+        'accordion-up': {
+          from: {
+            height: 'var(--radix-accordion-content-height)',
+          },
+          to: {
+            height: '0',
+          },
+        },
+      },
+      animation: {
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
       },
     },
   },
