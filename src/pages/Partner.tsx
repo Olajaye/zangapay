@@ -1,38 +1,43 @@
 "use client"
-import { Button } from '@/ui/button'
+// import { Button } from '@/ui/button'
 import { beVisible } from '@/lib/motion'
 import axios from 'axios'
 import { motion } from 'framer-motion'
-import { PaperclipIcon } from 'lucide-react'
+// import { PaperclipIcon } from 'lucide-react'
 import Image from 'next/image'
 import { ChangeEvent, useState } from 'react'
 import { FaLongArrowAltRight } from "react-icons/fa";
+import Navbar from '@/components/Navbar'
+import { ThankYouPopup } from '@/components/minicomponent/popUp'
 
 const Partner = () => {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  // const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [sendIng, setSending] = useState(false)
   const [partnerDate, setPartnerDate] = useState({
     fullName: "",
     email: "",
     phone: "",
+    accountName:"",
+    accountNumber:"",
+    bankName:"",
     aOfIntrest:"",
     address:"",
   })
   
 
 
-  const handleFileSelect = (e:React.ChangeEvent<HTMLInputElement>)=>{
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      setSelectedFile(file);
-    }
-  }
+  // const handleFileSelect = (e:React.ChangeEvent<HTMLInputElement>)=>{
+  //   if (e.target.files && e.target.files[0]) {
+  //     const file = e.target.files[0];
+  //     setSelectedFile(file);
+  //   }
+  // }
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>{
     const {name, value} = e.target
     setPartnerDate(prev=> ({...prev, [name]:value}))
   } 
-
-
   
   const handleSubmit = async (e: { preventDefault: () => void; })=>{
     e.preventDefault()
@@ -41,15 +46,15 @@ const Partner = () => {
     const templateID = "template_ruh52zl"
     const publicKey = "t_pIAxg9QfhpiYJc5"
 
-    let fileData = "";
-    if (selectedFile) {
-      fileData = await new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(selectedFile);
-        reader.onload = () => resolve(reader.result as string);
-        reader.onerror = error => reject(error);
-      });
-    }
+    // let fileData = "";
+    // if (selectedFile) {
+    //   fileData = await new Promise((resolve, reject) => {
+    //     const reader = new FileReader();
+    //     reader.readAsDataURL(selectedFile);
+    //     reader.onload = () => resolve(reader.result as string);
+    //     reader.onerror = error => reject(error);
+    //   });
+    // }
 
     const data = {
       service_id: serviceId,
@@ -58,40 +63,46 @@ const Partner = () => {
       template_params: {
         user_name: partnerDate.fullName,
         user_email: partnerDate.email,
-        message: `Phone: ${partnerDate.phone} \n Address: ${partnerDate.address} \n Area of Intrest: ${partnerDate.aOfIntrest} \n`,
-        attachment: fileData
+        message: `Phone: ${partnerDate.phone} 
+                  \n Address: ${partnerDate.address} 
+                  \n Area of Intrest: ${partnerDate.aOfIntrest} 
+                  \n Account Name: ${partnerDate.accountName}
+                  \n Account Number: ${partnerDate.accountNumber}
+                  \n Bank Name: ${partnerDate.bankName}`
+                  ,
       }
     }
 
     try {
-      const res = await axios.post("https://api.emailjs.com/api/v1.0/email/send", data)
-      if(res.data === "OK"){
-        setPartnerDate({
-          fullName: "",
-          email: "",
-          phone: "",
-          aOfIntrest:"",
-          address:"",
-        })
-        setSelectedFile(null)
-        alert("Thanks for contacting zangapay")
-      }
-    } catch (error) {
-       alert(`An error occourded ${error}`)
-    }finally{
       setPartnerDate({
         fullName: "",
         email: "",
         phone: "",
+        accountName:"",
+        accountNumber:"",
+        bankName:"",
         aOfIntrest:"",
         address:"",
       })
+      setSending(true)
+      const res = await axios.post("https://api.emailjs.com/api/v1.0/email/send", data)
+      if(res.data === "OK"){
+        setSending(false)
+        // setSelectedFile(null)
+        setIsPopupVisible(true)
+      }
+    } catch (error) {
+       alert(`An error occourded ${error}`)
     }
   }
 
+  const handleClosePopup = () => {
+    setIsPopupVisible(false);
+  };
   return (
     <>
      <section className="bg-bgGradient h-auto bg-cover bg-center text-white overflow-y-hidden">
+      <Navbar/>
       <div className='flex justify-center items-center'>
         <div className="md:max-w-[70%] lg:max-w-[60%] space-y-6 text-center pt-10">
           <motion.h1 
@@ -100,7 +111,7 @@ const Partner = () => {
           whileInView="visible"
           className="text-3xl md:text-6xl font-bold text-center  leading-7">
           <span className='relative pt-10'>
-            Patner
+            Partner
             <span className='absolute -bottom-2 -left-5 md:left-0 md:-bottom-1'>
               <Image src={'/greenLine.png'} alt='line' width={250} height={200}/>
             </span>
@@ -164,7 +175,6 @@ const Partner = () => {
               />
             </div>
 
-
             <div className='md:w-[45%] flex flex-col'>
               <label htmlFor="aOfIntrest" className='text-base font-semibold mb-5'>Area Of Interest</label>
               <input 
@@ -181,52 +191,75 @@ const Partner = () => {
 
           <div className='md:flex justify-between items-center space-y-4 md:space-y-0 mt-6'>
             <div className='md:w-[45%] flex flex-col'>
-            <label htmlFor="address" className='text-base font-semibold mb-5'>Address</label>
-            <input 
-              type="text" 
-              placeholder='(optional)'
-              id='address' 
-              value={partnerDate.address}
-              name="address" 
-              onChange={handleOnChange}   
-              className='bg-white border-black border-[1px] w-full h-12 rounded-lg px-3 outline-none text-black'
-            />
+              <label htmlFor="address" className='text-base font-semibold mb-5'>Address</label>
+              <input 
+                type="text" 
+                placeholder='(optional)'
+                id='address' 
+                value={partnerDate.address}
+                name="address" 
+                onChange={handleOnChange}   
+                className='bg-white border-black border-[1px] w-full h-12 rounded-lg px-3 outline-none text-black'
+              />
             </div>
             
 
 
-            <div className='md:w-[45%]'>
-              <div className="flex items-center bg-white text-black rounded-lg">
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={() => document.getElementById("file-input")?.click()}
-                  className="w-full"
-                >
-                  <PaperclipIcon className="w-4 h-4 mr-2" />
-                  {selectedFile ? selectedFile.name : "Choose file"}
-                </Button>
-                <input
-                  id="file-input"
-                  type="file"
-                  onChange={handleFileSelect}
-                  className="hidden"
-                />
-              </div>
+            <div className='md:w-[45%] flex flex-col'>
+              <label htmlFor="aOfIntrest" className='text-base font-semibold mb-5'>Account Number</label>
+              <input 
+                type="text"
+                placeholder='Account number'
+                id='aOfIntrest' 
+                value={partnerDate.accountNumber}
+                name="accountNumber" 
+                onChange={handleOnChange}
+                className='bg-white border-black border-[1px] w-full h-12 rounded-lg px-3 outline-none text-black'
+              />
+            </div>
+          </div>
+
+          <div className='md:flex justify-between items-center space-y-4 md:space-y-0 mt-6'>
+            <div className='md:w-[45%] flex flex-col'>
+              <label htmlFor="phone" className='text-base font-semibold mb-5'>Account Name</label>
+              <input 
+                type="text" 
+                placeholder='Account Name' 
+                id='phone' 
+                value={partnerDate.accountName}
+                name="accountName" 
+                required
+                onChange={handleOnChange}  
+              className='bg-white border-black border-[1px] w-full h-12 rounded-lg px-3 outline-none text-black'
+              />
+            </div>
+
+
+            <div className='md:w-[45%] flex flex-col'>
+              <label htmlFor="address" className='text-base font-semibold mb-5'>Bank Name</label>
+              <input 
+                type="text" 
+                placeholder='Bank Name'
+                id='address' 
+                value={partnerDate.bankName}
+                name="bankName" 
+                onChange={handleOnChange}   
+                className='bg-white border-black border-[1px] w-full h-12 rounded-lg px-3 outline-none text-black'
+              />
             </div>
           </div>
 
           <div className='flex md:justify-end md:items-end mb-5 justify-center items-center pt-10'>
-            <button type='submit' className='flex bg-black p-3 items-center rounded-lg'>Submite Message <FaLongArrowAltRight className='ms-5'/> </button>
+            <button type='submit' className='flex bg-black p-3 items-center rounded-lg'>{sendIng ? "Submitting..." : "Submite Message" }<FaLongArrowAltRight className='ms-5'/> </button>
           </div>
         </div>
 
       </form>
       
      </section>
-
+     {isPopupVisible && <ThankYouPopup onClose={handleClosePopup} text={'Thanks for choosing to partner with us'}/>}
      <div className='container mx-auto px-4 flex justify-center items-center flex-col py-10'>
-      <h1 className='font-bold text-4xl text-black text-center'>Benefits of Working at Zangapay</h1>
+      <h1 className='font-bold text-xl md:text-4xl text-black text-center'>Benefits of Working at Zangapay</h1>
 
       <div className='text-lg font-medium text-start lg:max-w-[70%] mt-7 space-y-6'>
       <h6><span>1.</span> Competitive Salary and Benefits Package: Earn a competitive salary and comprehensive benefits for financial security and peace of mind always.</h6>

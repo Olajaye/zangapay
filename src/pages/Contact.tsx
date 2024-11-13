@@ -9,10 +9,13 @@ import { motion } from 'framer-motion';
 import { beVisible } from '@/lib/motion';
 import { ChangeEvent, useState } from 'react';
 import axios from 'axios';
+import Navbar from '@/components/Navbar';
+import { ThankYouPopup } from '@/components/minicomponent/popUp';
 
 
 const Contact = () => {
-
+  const [sendIng, setSending] = useState(false)
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [contactDate, setContactDate] = useState({
     fullName: "",
     email: "",
@@ -46,16 +49,19 @@ const Contact = () => {
     }
 
     try {
+      setContactDate({
+        fullName: "",
+        email: "",
+        phone: "",
+        rForContact:"",
+        message:"",
+      })
+      setSending(true)
       const res = await axios.post("https://api.emailjs.com/api/v1.0/email/send", data)
       if(res.data === "OK"){
-        setContactDate({
-          fullName: "",
-          email: "",
-          phone: "",
-          rForContact:"",
-          message:"",
-        })
-        alert("Thanks for contacting zangapay")
+        setSending(false)
+        setIsPopupVisible(true)
+        // alert("Thanks for contacting zangapay")
       }
     } catch (error) {
        alert(`An error occourded ${error}`)
@@ -69,10 +75,13 @@ const Contact = () => {
       })
     }
   }
-
+  const handleClosePopup = () => {
+    setIsPopupVisible(false);
+  };
   return (
     <>
      <section className="bg-bgGradient h-auto bg-cover bg-center text-white overflow-y-hidden">
+      <Navbar/>
       <form onSubmit={handleSubmit}>
       <div className='flex justify-center items-center'>
         <div className="md:max-w-[70%] lg:max-w-[60%] space-y-6 text-center pt-10">
@@ -171,16 +180,16 @@ const Contact = () => {
 
 
         <div className='flex md:justify-end md:items-end mb-5 justify-center items-center pt-10'>
-          <button type='submit' className='flex bg-black p-3 text-white items-center rounded-lg'>Submite Message <FaLongArrowAltRight  className='ms-5'/> </button>
+        <button type='submit' className='flex bg-black p-3 items-center rounded-lg'>{sendIng ? "Submitting..." : "Submite Message" }<FaLongArrowAltRight className='ms-5'/> </button>
         </div>
       </div>
       </form>
      </section>
-
+     {isPopupVisible && <ThankYouPopup onClose={handleClosePopup} text={'Thanks for reaching out to us'}/>}
      <div className='container mx-auto px-4 flex justify-center items-center flex-col py-10'>
 
         <div className='w-full lg:w-[70%]'>
-          <h1 className='font-bold text-4xl text-black text-start'>Our Customer Care Line </h1>
+          <h1 className='font-bold text-xl md:text-4xl text-black text-start'>Our Customer Care Line </h1>
         </div>
          
 
@@ -209,7 +218,7 @@ const Contact = () => {
 
           <div className='flex flex-wrap gap-4 justify-between items-center'>
             <button 
-              className='flex p-2 px-4 items-center rounded-full border-[1px] border-black text-xs'><MailIcon className='me-2 w-4 h-4'/> support@billpointpos  
+              className='flex p-2 px-4 items-center rounded-full border-[1px] border-black text-xs'><MailIcon className='me-2 w-4 h-4'/> Zangapay49@gmail.com 
             </button>
             <button 
               className='flex p-2 px-4 items-center rounded-full border-[1px] border-black text-xs'><IoIosCall className='me-2 w-4 h-4'/>08152000002 

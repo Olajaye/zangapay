@@ -3,29 +3,36 @@ import Hero from '@/components/Hero'
 import { motion } from 'framer-motion'
 import React from 'react'
 import Image from 'next/image'
+import Navbar from '@/components/Navbar'
+import Link from 'next/link'
 
 
 const Teams = () => {
   return (
     <>
-       <Hero>
-        <motion.h1 
-          initial={{scale: 0.5, opacity:0 }}
-          whileInView={{
-            scale: 1,
-            opacity: 1, 
-            transition: {
-              duration: 4,
-          }}}
-          className="text-3xl md:text-6xl font-bold text-center  leading-7 py-20">
-          <span className='relative'>
-            Terms 
-            <span className='absolute -bottom-2 -left-5 md:left-0 md:-bottom-1'>
-              <Image src={'/greenLine.png'} alt='line' width={200} height={200}/>
-            </span> of use
-          </span>
-        </motion.h1>
-      </Hero>
+        <section className="bg-bgGradient h-auto bg-cover bg-center text-white overflow-y-hidden">
+            <Navbar/>
+            <Hero>
+                <motion.h1 
+                initial={{scale: 0.5, opacity:0 }}
+                whileInView={{
+                    scale: 1,
+                    opacity: 1, 
+                    transition: {
+                    duration: 4,
+                }}}
+                className="text-3xl md:text-6xl font-bold text-center  leading-7 py-20">
+                <span className='relative'>
+                    Terms 
+                    <span className='absolute -bottom-2 -left-5 md:left-0 md:-bottom-1'>
+                    <Image src={'/greenLine.png'} alt='line' width={200} height={200}/>
+                    </span> of use
+                </span>
+                </motion.h1>
+            </Hero>
+        </section>
+
+
       <div className="container mx-auto py-10 px-4">
 
         <header className="mb-8 text-center">
@@ -70,7 +77,7 @@ const Teams = () => {
 
             <h2 className="text-xl font-bold">6. Privacy Policy</h2>
             <p>
-                Your privacy is important to us. By using Zangapay, you consent to the collection, use, and sharing of your personal information as outlined in our <a href="/privacy-policy" className="text-blue-600 hover:underline">Privacy Policy</a>. Please review the policy carefully to understand how we manage your data.
+                Your privacy is important to us. By using Zangapay, you consent to the collection, use, and sharing of your personal information as outlined in our <Link href="/company/privacy" className="text-blue-600 hover:underline">Privacy Policy</Link>. Please review the policy carefully to understand how we manage your data.
             </p>
 
             <h2 className="text-xl font-bold">7. Prohibited Activities</h2>

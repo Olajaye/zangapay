@@ -1,7 +1,7 @@
 import React from 'react';
 import ServiceCard from '@/components/minicomponent/serviceCards';
 import { motion } from 'framer-motion';
-import { beVisible, slideInFromLeft, slideInFromRight } from '@/lib/motion';
+import { slideInFromLeft, slideInFromRight } from '@/lib/motion';
 
 
 const services = [
@@ -57,10 +57,7 @@ export default function ServicesSection() {
           </motion.p>
         </div>
 
-        <motion.div 
-          variants={beVisible(1)}
-          initial="hidden"
-          whileInView="visible"
+        <div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
             <ServiceCard
@@ -70,7 +67,7 @@ export default function ServicesSection() {
               description={service.description}
             />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   

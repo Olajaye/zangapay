@@ -1,3 +1,5 @@
+import { beVisible } from '@/lib/motion';
+import { motion } from 'framer-motion';
 import React from 'react';
 
 
@@ -52,7 +54,11 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ icon, title, description }: ServiceCardProps) {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border-[1px] border-[#00000085]">
+    <motion.div 
+      variants={beVisible(0.6)}
+      initial="hidden"
+      whileInView="visible"
+      className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border-[1px] border-[#00000085]">
       <div className="mb-4">
         <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center">
           <ServiceIcon name={icon} />
@@ -60,6 +66,6 @@ export default function ServiceCard({ icon, title, description }: ServiceCardPro
       </div>
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       <p className="text-gray-600">{description}</p>
-    </div>
+    </motion.div>
   );
 }

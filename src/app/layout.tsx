@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from 'next/font/google';
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+// import Navbar from "@/components/Navbar";
 import AppDownload from "@/components/DownloadApp";
 import Footer from "@/components/Footer";
 
@@ -19,8 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} overflow-x-hidden`}>
-        <Navbar/>
+      <body className={`${inter.className} antialiased`}>
         {children}
         <AppDownload/>
         <Footer/>

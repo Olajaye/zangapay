@@ -11,7 +11,7 @@ type Props = {
 
 const Hero = ({children}: Props) => {
   return (
-    <section className="bg-bgGradient h-auto bg-cover bg-center text-white overflow-y-hidden">
+    
     <div className='flex items-center justify-end'>
       <div className="container mx-auto pt-10 px-4">
         <div className="flex flex-col justify-between items-center">
@@ -35,7 +35,6 @@ const Hero = ({children}: Props) => {
         </div>
       </div>
     </div>
-  </section>
   )
 }
 

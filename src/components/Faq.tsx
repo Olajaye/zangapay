@@ -31,8 +31,8 @@ export default function FAQ() {
     <section className=" pt-10 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Zangapay Frequently Asked Questions (FAQs)</h2>
+          <div className="text-center mb-6">
+            <h2 className="text-xl md:text-3xl font-bold mb-4">Zangapay Frequently Asked Questions (FAQs)</h2>
             <p className="text-gray-600">Find answers to common questions about our service</p>
           </div>
           <Accordion type="single" collapsible>

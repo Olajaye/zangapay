@@ -29,11 +29,13 @@ const steps: Step[] = [
 
 export default function StepsSection() {
   return (
-    <section className='bg-secondary py-6'>
+    <section className='bg-primary py-10'>
       <div className="container mx-auto px-4 flex items-center justify-center">
-        <div className=" md:flex justify-between items-center">
-          <div className=" order-2">
-            <Image src="/stepss.png" alt="ZangaPay representative" height={500} width={1600}/>
+        <div className=" md:flex justify-between items-end">
+          <div className="order-2 flex items-end justify-center ">
+           
+            <Image src="/stepss.png" alt="ZangaPay representative" height={500} width={1400} className=''/>
+          
           </div>
 
           <div className="space-y-8 order-1 mt-6 md:mt-0">

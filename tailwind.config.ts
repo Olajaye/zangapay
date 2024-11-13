@@ -9,9 +9,9 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'bgGradient': ' url("/line.svg"), linear-gradient(180deg, #FF9F9F 0%, #CE2528 100%)',
-        'curvelinebackground': "url('/BG Line Objects.png')", 
-     
+        'bgGradient': ' url("/line.svg"), linear-gradient(180deg, #CE2528 0%, #CE2528 100%)',
+        'curvelinebackground': "url('/BG Line Objects.png')",
+        'missionBg': 'url("/image2.jpg"), linear-gradient(180deg, #FF9F9F 0%, #CE2528 100%)',
       },
       colors: {
         background: 'hsl(var(--background))',

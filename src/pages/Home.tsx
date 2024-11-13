@@ -8,6 +8,7 @@ import ServicesSection from '@/components/Service';
 import Hero from '@/components/Hero';
 import {motion} from "framer-motion"
 import {slideInFromLeft, slideInFromRight  } from '@/lib/motion';
+import Navbar from '@/components/Navbar';
 
 
 
@@ -16,9 +17,12 @@ import {slideInFromLeft, slideInFromRight  } from '@/lib/motion';
 export default function Home() {
   return (
     <>
-      <Hero>
-        <HomeHeader/>
-      </Hero>
+      <section className="bg-bgGradient h-auto bg-cover bg-center text-white overflow-y-hidden">
+        <Navbar/>
+        <Hero>
+          <HomeHeader/>
+        </Hero>
+      </section>
       <section className='bg-primary'>
         <Partners />
         <section className='bg-white'>

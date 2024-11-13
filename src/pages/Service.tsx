@@ -7,13 +7,13 @@ import Image from 'next/image'
 import React from 'react'
 
 
-const About = () => {
+const Service = () => {
   return (
     <>
       <section className="bg-bgGradient h-auto bg-cover bg-center text-white overflow-y-hidden">
         <Navbar/>
         <Hero>
-          <AboutHeader/>
+          <ServiceHeader/>
         </Hero>
       </section>
       <section className='bg-white pt-16'>
@@ -23,19 +23,19 @@ const About = () => {
              variants={slideInFromLeft(0.4)}
              initial="hidden"
              whileInView="visible" 
-            className='font-bold text-4xl text-black'>About Us 
+            className='font-bold text-4xl text-black'>Our Services 
           </motion.h1>
 
-          <motion.h5 
+          {/* <motion.h5 
            variants={slideInFromRight(0.4)}
            initial="hidden"
            whileInView="visible"
             className='text-lg font-medium text-center lg:max-w-[70%] mt-7'>We are pleased to welcome you to Zangapay, a distinguished subsidiary of Christopher Gomen Ltd (RC7309058). Although we are not a bank, we collaborate closely with banks registered with the Central Bank of Nigeria (CBN) to deliver our services. As a leading bill payment company, our mission is to offer you a seamless, reliable, and secure platform for all your payment needs. Thank you for choosing Zangapay. We are dedicated to serving you with the utmost professionalism and efficiency.
-          </motion.h5>
+          </motion.h5> */}
         </div>
 
 
-        <div className='container mx-auto px-4 xl:flex justify-between py-20'>
+        {/* <div className='container mx-auto px-4 xl:flex justify-between py-20'>
           <div className='xl:w-[40%] flex justify-center items-center'>
             <Image src={"/about/ceo.svg"} alt="CEO" height={800} width={700} className='h-auto'/>
           </div>
@@ -48,10 +48,10 @@ const About = () => {
             </div>
             
           </div>
-        </div>
+        </div> */}
 
 
-        <div className='md:flex py-20'>
+        {/* <div className='md:flex py-20'>
           <div className='flex-1 bg-secondary flex justify-center items-center flex-col p-4 md:p-8'>
             <Image src={"/about/image1.jpg"} alt='vision-png' width={300} height={300} className='rounded-xl'/>
             <h1 className='text-white font-bold text-4xl my-10'>Our Vision</h1>
@@ -66,15 +66,15 @@ const About = () => {
               <h6><span>Customer-Centricity:</span> Our users are at the heart of everything we do.</h6>
             </h6> 
           </div>
-        </div>
+        </div> */}
       </section>
     </>
   )
 }
 
-export default About
+export default Service
 
-const AboutHeader = ()=>{
+const ServiceHeader = ()=>{
   return (
     <>
        <div className="lg:max-w-[70%] space-y-6 text-center mt-6  pt-10">
@@ -85,18 +85,18 @@ const AboutHeader = ()=>{
           className="text-3xl md:text-6xl font-bold text-center  leading-7">
           <span 
             className='relative'>
-            Hello
+            Services
             <span className='absolute -bottom-2 -left-5 md:left-0 md:-bottom-1'>
               <Image src={'/greenLine.png'} alt='line' width={250} height={200}/>
             </span>
-          </span> we are Zangapay Tecnology.
+          </span> we offer at Zangapay Tecnology.
         </motion.h1>
         <motion.p
           variants={beVisible(0.8)}
           initial="hidden"
           whileInView="visible"
           className="text-base opacity-90 py-10">
-          Zangapay is a secure and reliable platform that streamlines bill payments and provides you with a seamless experience, allowing you to easily pay your electricity bills, education bills, airtime top-ups, cable TV subscriptions, data bundle top-ups, and internet bills - all in one place.
+          At Zangapay, we offer a range of convenient financial services designed to meet your daily needs. Our services are tailored to provide seamless and reliable solutions, ensuring that you stay connected and in control of your utilities. Below is a summary of the core services we provide:
         </motion.p>
       </div>
     </>
