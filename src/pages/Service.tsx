@@ -1,10 +1,12 @@
 "use client"
 import Hero from '@/components/Hero'
 import Navbar from '@/components/Navbar'
-import { beVisible, slideInFromLeft, slideInFromRight } from '@/lib/motion'
+import { beVisible, slideInFromLeft  } from '@/lib/motion' 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
+
+// slideInFromRight
 
 
 const Service = () => {
