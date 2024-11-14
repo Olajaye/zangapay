@@ -33,6 +33,11 @@ const Contact = () => {
   const handleSubmit = async (e: { preventDefault: () => void; })=>{
     e.preventDefault()
 
+    // const serviceId = "service_on492ey"
+    // const templateID = "template_uzjtu9s"
+    // const publicKey = "V-B5QmL3ktPmX0Jqb"
+
+
     const serviceId = "service_f9mn16i"
     const templateID = "template_ruh52zl"
     const publicKey = "t_pIAxg9QfhpiYJc5"
@@ -44,7 +49,11 @@ const Contact = () => {
       template_params: {
         user_name: contactDate.fullName,
         user_email: contactDate.email,
-        message: `Phone: ${contactDate.phone} \n Reason for contact: ${contactDate.rForContact} \n Message: ${contactDate.message}`
+        message: `Full-Name: ${contactDate.fullName} 
+                \n Email: ${contactDate.email}
+                \n Phone: ${contactDate.phone} 
+                \n Reason for contact: ${contactDate.rForContact} 
+                \n Message: ${contactDate.message}`
       }
     }
 
@@ -65,6 +74,7 @@ const Contact = () => {
       }
     } catch (error) {
        alert(`An error occourded ${error}`)
+       setSending(false)
     }finally{
       setContactDate({
         fullName: "",

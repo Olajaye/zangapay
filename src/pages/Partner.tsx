@@ -63,7 +63,8 @@ const Partner = () => {
       template_params: {
         user_name: partnerDate.fullName,
         user_email: partnerDate.email,
-        message: `Phone: ${partnerDate.phone} 
+        message: `Fulname: ${partnerDate.fullName}
+                  \nPhone: ${partnerDate.phone} 
                   \n Address: ${partnerDate.address} 
                   \n Area of Intrest: ${partnerDate.aOfIntrest} 
                   \n Account Name: ${partnerDate.accountName}
