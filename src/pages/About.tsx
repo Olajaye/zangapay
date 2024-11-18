@@ -89,7 +89,7 @@ const AboutHeader = ()=>{
             <span className='absolute -bottom-2 -left-5 md:left-0 md:-bottom-1'>
               <Image src={'/greenLine.png'} alt='line' width={250} height={200}/>
             </span>
-          </span> we are Zangapay Tecnology.
+          </span> we are Zangapay Technology.
         </motion.h1>
         <motion.p
           variants={beVisible(0.8)}

@@ -40,11 +40,11 @@ const Service = () => {
             <div className='flex-1 flex justify-center items-center flex-col text-start mt-5'>
               <div className='flex justify-center items-center px-20'>
                 <motion.h6 
-                  variants={slideInFromRight(0.2)}
+                  variants={slideInFromLeft(0.2)}
                   initial="hidden"
                   whileInView="visible" 
                   className='text-xl text-center'>
-                  Enjoy uninterrupted entertainment with our cable
+                  We blow your mind, and we know exactly why.
                 </motion.h6>
               </div>
             </div>
@@ -65,7 +65,7 @@ const Service = () => {
                   initial="hidden"
                   whileInView="visible" 
                   className='text-xl text-center'>
-                  Enjoy uninterrupted entertainment with our cable
+                  Experience the ultimate convenience of a premium app designed to handle all your financial and lifestyle needs in one place.
                 </motion.h6>
               </div>
             </div>
@@ -88,7 +88,7 @@ const Service = () => {
                   initial="hidden"
                   whileInView="visible" 
                   className='text-xl text-center'>
-                  Enjoy uninterrupted entertainment with our cable
+                  Instantly top up your airtime and mobile data anytime, anywhere. Stay connected effortlessly with ZangaPay.
                 </motion.h6>
               </div>
             </div>
@@ -105,11 +105,56 @@ const Service = () => {
             <div className='flex-1 flex justify-center items-center flex-col text-start mt-5'>
               <div className='flex justify-center items-center px-20'>
                 <motion.h6 
+                  variants={slideInFromLeft(0.4)}
+                  initial="hidden"
+                  whileInView="visible" 
+                  className='text-xl text-center'>
+                  Why clutter your phone with multiple apps? ZangaPay brings everything you need into one seamless experience.
+                </motion.h6>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div className='md:flex justify-between items-center'>
+          <div className='container mx-auto px-4  justify-between py-10'>
+            <motion.div 
+              variants={beVisible(0.4)}
+              initial="hidden"
+              whileInView="visible" 
+              className='flex justify-center items-center'>
+              <Image src={"/service/planezanga.png"} alt="CEO" height={100} width={400} className='rounded-2xl'/>
+            </motion.div>
+            <div className='flex-1 flex justify-center items-center flex-col text-start mt-5'>
+              <div className='flex justify-center items-center px-20'>
+                <motion.h6 
+                  variants={slideInFromLeft(0.8)}
+                  initial="hidden"
+                  whileInView="visible" 
+                  className='text-xl text-center'>
+                  Book flights quickly and securely with just a few taps. Your next destination is closer than ever with ZangaPay.
+                </motion.h6>
+              </div>
+            </div>
+          </div>
+
+          <div className='container mx-auto px-4  justify-between py-10'>
+            <motion.div 
+              variants={beVisible(0.8)}
+              initial="hidden"
+              whileInView="visible" 
+              className='flex justify-center items-center'>
+              <Image src={"/service/plan.png"} alt="CEO" height={100} width={400} className='rounded-2xl'/>
+            </motion.div>
+            <div className='flex-1 flex justify-center items-center flex-col text-start mt-5'>
+              <div className='flex justify-center items-center px-20'>
+                <motion.h6 
                   variants={slideInFromRight(0.4)}
                   initial="hidden"
                   whileInView="visible" 
                   className='text-xl text-center'>
-                  Enjoy uninterrupted entertainment with our cable
+                  Book the cheapest flights effortlessly with ZangaPay—making travel more affordable than ever!
                 </motion.h6>
               </div>
             </div>
@@ -139,7 +184,7 @@ const ServiceHeader = ()=>{
             <span className='absolute -bottom-2 -left-5 md:left-0 md:-bottom-1'>
               <Image src={'/greenLine.png'} alt='line' width={250} height={200}/>
             </span>
-          </span> we offer at Zangapay Tecnology.
+          </span> we offer at Zangapay Technology.
         </motion.h1>
         <motion.p
           variants={beVisible(0.8)}

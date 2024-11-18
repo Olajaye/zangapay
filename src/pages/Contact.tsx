@@ -19,7 +19,7 @@ const Contact = () => {
   const [contactDate, setContactDate] = useState({
     fullName: "",
     email: "",
-    phone: "",
+    phone: 0,
     rForContact:"",
     message:"",
   })
@@ -33,14 +33,10 @@ const Contact = () => {
   const handleSubmit = async (e: { preventDefault: () => void; })=>{
     e.preventDefault()
 
-    // const serviceId = "service_on492ey"
-    // const templateID = "template_uzjtu9s"
-    // const publicKey = "V-B5QmL3ktPmX0Jqb"
+    const serviceId = "service_dqy38vg"
+    const templateID = "template_ppt6jl6"
+    const publicKey = "wRjb5an2kROXm-8_V"
 
-
-    const serviceId = "service_f9mn16i"
-    const templateID = "template_ruh52zl"
-    const publicKey = "t_pIAxg9QfhpiYJc5"
 
     const data = {
       service_id: serviceId,
@@ -61,7 +57,7 @@ const Contact = () => {
       setContactDate({
         fullName: "",
         email: "",
-        phone: "",
+        phone: 0,
         rForContact:"",
         message:"",
       })
@@ -79,7 +75,7 @@ const Contact = () => {
       setContactDate({
         fullName: "",
         email: "",
-        phone: "",
+        phone: 0,
         rForContact:"",
         message:"",
       })
@@ -151,7 +147,7 @@ const Contact = () => {
           <div className='md:w-[45%] flex flex-col'>
             <label htmlFor="phone" className='text-base font-semibold mb-5'>Phone number</label>
             <input 
-              type="text" 
+              type="number" 
               placeholder='Enter Phone Number' 
               value={contactDate.phone}
               name="phone"

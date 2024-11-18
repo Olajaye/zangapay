@@ -17,9 +17,9 @@ const Partner = () => {
   const [partnerDate, setPartnerDate] = useState({
     fullName: "",
     email: "",
-    phone: "",
+    phone: 0,
     accountName:"",
-    accountNumber:"",
+    accountNumber: 0,
     bankName:"",
     aOfIntrest:"",
     address:"",
@@ -42,9 +42,9 @@ const Partner = () => {
   const handleSubmit = async (e: { preventDefault: () => void; })=>{
     e.preventDefault()
 
-    const serviceId = "service_f9mn16i"
-    const templateID = "template_ruh52zl"
-    const publicKey = "t_pIAxg9QfhpiYJc5"
+    const serviceId = "service_dqy38vg"
+    const templateID = "template_ppt6jl6"
+    const publicKey = "wRjb5an2kROXm-8_V"
 
     // let fileData = "";
     // if (selectedFile) {
@@ -78,9 +78,9 @@ const Partner = () => {
       setPartnerDate({
         fullName: "",
         email: "",
-        phone: "",
+        phone: 0,
         accountName:"",
-        accountNumber:"",
+        accountNumber: 0,
         bankName:"",
         aOfIntrest:"",
         address:"",
@@ -165,7 +165,7 @@ const Partner = () => {
             <div className='md:w-[45%] flex flex-col'>
               <label htmlFor="phone" className='text-base font-semibold mb-5'>Phone number</label>
               <input 
-                type="text" 
+                type="number" 
                 placeholder='Enter Phone Number' 
                 id='phone' 
                 value={partnerDate.phone}
@@ -209,7 +209,7 @@ const Partner = () => {
             <div className='md:w-[45%] flex flex-col'>
               <label htmlFor="aOfIntrest" className='text-base font-semibold mb-5'>Account Number</label>
               <input 
-                type="text"
+                type="number"
                 placeholder='Account number'
                 id='aOfIntrest' 
                 value={partnerDate.accountNumber}

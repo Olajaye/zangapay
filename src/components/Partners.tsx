@@ -28,6 +28,10 @@ const patImag = [
   "/partner/nairabet.png",
   "/partner/showmax-logo.png",
   "/partner/startimes-logo.png",
+  "/partner/british.jpeg",
+  "/partner/klm.png",
+  "/partner/lufthansan.png",
+  "/partner/turkish.png",
 ]
 
 export default function Partners() {
@@ -51,8 +55,8 @@ export default function Partners() {
             className="flex justify-center items-center ">
             <div className=" flex flex-wrap justify-center items-center gap-6  lg:w-[80%]">
               {patImag.map((img, index)=>(
-                <div className="hover:scale-110 hover:grayscale transition-all duration-500 p-3 rounded-xl shadow-md" key={index}>
-                  <Image src={img} alt="img" width={60} height={50} className="" />
+                <div className="hover:scale-110 hover:grayscale transition-all duration-500 p-2 rounded-xl shadow-md h-[70px] w-[70px] flex justify-center items-center" key={index}>
+                  <Image src={img} alt="img" width={70} height={60} className="" />
                 </div>
                 
               ))}
