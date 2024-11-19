@@ -42,9 +42,12 @@ const Partner = () => {
   const handleSubmit = async (e: { preventDefault: () => void; })=>{
     e.preventDefault()
 
-    const serviceId = "service_dqy38vg"
-    const templateID = "template_ppt6jl6"
-    const publicKey = "wRjb5an2kROXm-8_V"
+    const serviceId = "service_on492ey"
+    const templateID = "template_8csvzv7"
+    const publicKey = "V-B5QmL3ktPmX0Jqb"
+    // const serviceId = "service_rs4ikxf"
+    // const templateID = "template_ppt6jl6"
+    // const publicKey = "wRjb5an2kROXm-8_V"
 
     // let fileData = "";
     // if (selectedFile) {
