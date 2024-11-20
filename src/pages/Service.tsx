@@ -7,6 +7,33 @@ import Image from 'next/image'
 import React from 'react'
 
 
+const services = [
+  {
+    image: '/service/ladies2.png',
+    text: 'We blow your mind, and we know exactly why.'
+  },
+  {
+    image: '/service/ladies1.png',
+    text: 'Experience the ultimate convenience of a premium app designed to handle all your financial and lifestyle needs in one place.'
+  },
+  {
+    image: '/service/service1.png',
+    text: 'Instantly top up your airtime and mobile data anytime, anywhere. Stay connected effortlessly with ZangaPay.'
+  },
+  {
+    image: '/service/service2.jpg',
+    text: 'Why clutter your phone with multiple apps? ZangaPay brings everything you need into one seamless experience.'
+  },
+  {
+    image: '/service/plane-zanga.png',
+    text: 'Book flights quickly and securely with just a few taps. Your next destination is closer than ever with ZangaPay.'
+  },
+  {
+    image: '/service/plan.png',
+    text: 'Book the cheapest flights effortlessly with ZangaPay—making travel more affordable than ever!'
+  },
+]
+
 const Service = () => {
   return (
     <>
@@ -18,6 +45,8 @@ const Service = () => {
       </section>
       <section className='bg-white pt-16'>
 
+        
+
         <div className='container mx-auto px-4 flex justify-center items-center flex-col'>
           <motion.h1
              variants={slideInFromLeft(0.4)}
@@ -28,140 +57,33 @@ const Service = () => {
         </div>
 
 
-        <div className='md:flex justify-between items-center'>
-          <div className='container mx-auto px-4  justify-between py-10'>
-            <motion.div 
-              variants={beVisible(0.4)}
-              initial="hidden"
-              whileInView="visible" 
-              className='flex justify-center items-center'>
-              <Image src={"/service/ladies2.png"} alt="CEO" height={100} width={400} className='rounded-2xl'/>
-            </motion.div>
-            <div className='flex-1 flex justify-center items-center flex-col text-start mt-5'>
-              <div className='flex justify-center items-center px-20'>
-                <motion.h6 
-                  variants={slideInFromLeft(0.2)}
-                  initial="hidden"
-                  whileInView="visible" 
-                  className='text-xl text-center'>
-                  We blow your mind, and we know exactly why.
-                </motion.h6>
-              </div>
-            </div>
-          </div>
+        <div className='grid grid-cols-2  gap-4  mt-7'>
 
-          <div className='container mx-auto px-4  justify-between py-10'>
-            <motion.div 
-              variants={beVisible(0.8)}
-              initial="hidden"
-              whileInView="visible" 
-              className='flex justify-center items-center'>
-              <Image src={"/service/ladies1.png"} alt="CEO" height={100} width={400} className='rounded-2xl'/>
-            </motion.div>
-            <div className='flex-1 flex justify-center items-center flex-col text-start mt-5'>
-              <div className='flex justify-center items-center px-20'>
-                <motion.h6 
-                  variants={slideInFromRight(0.4)}
-                  initial="hidden"
-                  whileInView="visible" 
-                  className='text-xl text-center'>
-                  Experience the ultimate convenience of a premium app designed to handle all your financial and lifestyle needs in one place.
-                </motion.h6>
+          {services.map((service, index)=>(
+            <div className='container mx-auto px-4 justify-between py-10' key={index}>
+              <motion.div 
+                variants={beVisible(0.4)}
+                initial="hidden"
+                whileInView="visible" 
+                className='flex justify-center items-center'>
+                <Image src={service.image} alt="CEO" height={100} width={400} className='rounded-2xl'/>
+              </motion.div>
+              <div className='flex-1 flex justify-center items-center flex-col text-start mt-5'>
+                <div className='flex justify-center items-center px-20'>
+                  <motion.h6 
+                    variants={slideInFromLeft(0.2)}
+                    initial="hidden"
+                    whileInView="visible" 
+                    className='text-xl text-center font-bold'>
+                    {service.text}
+                  </motion.h6>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
+
+          
         </div>
-
-        <div className='md:flex justify-between items-center'>
-          <div className='container mx-auto px-4  justify-between py-10'>
-            <motion.div 
-              variants={beVisible(0.4)}
-              initial="hidden"
-              whileInView="visible" 
-              className='flex justify-center items-center'>
-              <Image src={"/service/service1.png"} alt="CEO" height={100} width={400} className='rounded-2xl'/>
-            </motion.div>
-            <div className='flex-1 flex justify-center items-center flex-col text-start mt-5'>
-              <div className='flex justify-center items-center px-20'>
-                <motion.h6 
-                  variants={slideInFromRight(0.8)}
-                  initial="hidden"
-                  whileInView="visible" 
-                  className='text-xl text-center'>
-                  Instantly top up your airtime and mobile data anytime, anywhere. Stay connected effortlessly with ZangaPay.
-                </motion.h6>
-              </div>
-            </div>
-          </div>
-
-          <div className='container mx-auto px-4  justify-between py-10'>
-            <motion.div 
-              variants={beVisible(0.8)}
-              initial="hidden"
-              whileInView="visible" 
-              className='flex justify-center items-center'>
-              <Image src={"/service/service2.jpg"} alt="CEO" height={100} width={400} className='rounded-2xl'/>
-            </motion.div>
-            <div className='flex-1 flex justify-center items-center flex-col text-start mt-5'>
-              <div className='flex justify-center items-center px-20'>
-                <motion.h6 
-                  variants={slideInFromLeft(0.4)}
-                  initial="hidden"
-                  whileInView="visible" 
-                  className='text-xl text-center'>
-                  Why clutter your phone with multiple apps? ZangaPay brings everything you need into one seamless experience.
-                </motion.h6>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div className='md:flex justify-between items-center'>
-          <div className='container mx-auto px-4  justify-between py-10'>
-            <motion.div 
-              variants={beVisible(0.4)}
-              initial="hidden"
-              whileInView="visible" 
-              className='flex justify-center items-center'>
-              <Image src={"/service/planezanga.png"} alt="CEO" height={100} width={400} className='rounded-2xl'/>
-            </motion.div>
-            <div className='flex-1 flex justify-center items-center flex-col text-start mt-5'>
-              <div className='flex justify-center items-center px-20'>
-                <motion.h6 
-                  variants={slideInFromLeft(0.8)}
-                  initial="hidden"
-                  whileInView="visible" 
-                  className='text-xl text-center'>
-                  Book flights quickly and securely with just a few taps. Your next destination is closer than ever with ZangaPay.
-                </motion.h6>
-              </div>
-            </div>
-          </div>
-
-          <div className='container mx-auto px-4  justify-between py-10'>
-            <motion.div 
-              variants={beVisible(0.8)}
-              initial="hidden"
-              whileInView="visible" 
-              className='flex justify-center items-center'>
-              <Image src={"/service/plan.png"} alt="CEO" height={100} width={400} className='rounded-2xl'/>
-            </motion.div>
-            <div className='flex-1 flex justify-center items-center flex-col text-start mt-5'>
-              <div className='flex justify-center items-center px-20'>
-                <motion.h6 
-                  variants={slideInFromRight(0.4)}
-                  initial="hidden"
-                  whileInView="visible" 
-                  className='text-xl text-center'>
-                  Book the cheapest flights effortlessly with ZangaPay—making travel more affordable than ever!
-                </motion.h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-
       </section>
     </>
   )

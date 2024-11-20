@@ -53,7 +53,7 @@ export default function Partners() {
             initial="hidden"
             whileInView="visible"
             className="flex justify-center items-center ">
-            <div className=" flex flex-wrap justify-center items-center gap-6  lg:w-[80%]">
+            <div className="grid grid-cols-4 md:grid-cols-6 xl:grid-cols-8 gap-4 md:w-[90%]  lg:w-[80%]">
               {patImag.map((img, index)=>(
                 <div className="hover:scale-110 hover:grayscale transition-all duration-500 p-2 rounded-xl shadow-md h-[70px] w-[70px] flex justify-center items-center" key={index}>
                   <Image src={img} alt="img" width={70} height={60} className="" />

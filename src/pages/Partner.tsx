@@ -17,9 +17,9 @@ const Partner = () => {
   const [partnerDate, setPartnerDate] = useState({
     fullName: "",
     email: "",
-    phone: 0,
+    phone: "",
     accountName:"",
-    accountNumber: 0,
+    accountNumber: "",
     bankName:"",
     aOfIntrest:"",
     address:"",
@@ -81,9 +81,9 @@ const Partner = () => {
       setPartnerDate({
         fullName: "",
         email: "",
-        phone: 0,
+        phone: "",
         accountName:"",
-        accountNumber: 0,
+        accountNumber: "",
         bankName:"",
         aOfIntrest:"",
         address:"",
@@ -169,7 +169,7 @@ const Partner = () => {
               <label htmlFor="phone" className='text-base font-semibold mb-5'>Phone number</label>
               <input 
                 type="number" 
-                placeholder='Enter Phone Number' 
+                placeholder='Enter your registered Zangapay phone number' 
                 id='phone' 
                 value={partnerDate.phone}
                 name="phone" 
@@ -183,10 +183,11 @@ const Partner = () => {
               <label htmlFor="aOfIntrest" className='text-base font-semibold mb-5'>Area Of Interest</label>
               <input 
                 type="text"
-                placeholder='(optional)'
+                placeholder='Area of Intrest'
                 id='aOfIntrest' 
                 value={partnerDate.aOfIntrest}
                 name="aOfIntrest" 
+                required
                 onChange={handleOnChange}
                 className='bg-white border-black border-[1px] w-full h-12 rounded-lg px-3 outline-none text-black'
               />
@@ -198,10 +199,11 @@ const Partner = () => {
               <label htmlFor="address" className='text-base font-semibold mb-5'>Address</label>
               <input 
                 type="text" 
-                placeholder='(optional)'
+                placeholder='Enter address'
                 id='address' 
                 value={partnerDate.address}
                 name="address" 
+                required
                 onChange={handleOnChange}   
                 className='bg-white border-black border-[1px] w-full h-12 rounded-lg px-3 outline-none text-black'
               />
@@ -213,7 +215,7 @@ const Partner = () => {
               <label htmlFor="aOfIntrest" className='text-base font-semibold mb-5'>Account Number</label>
               <input 
                 type="number"
-                placeholder='Account number'
+                placeholder='Enter you account number'
                 id='aOfIntrest' 
                 value={partnerDate.accountNumber}
                 name="accountNumber" 

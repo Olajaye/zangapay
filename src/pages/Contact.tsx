@@ -19,7 +19,7 @@ const Contact = () => {
   const [contactDate, setContactDate] = useState({
     fullName: "",
     email: "",
-    phone: 0,
+    phone: "",
     rForContact:"",
     message:"",
   })
@@ -61,7 +61,7 @@ const Contact = () => {
       setContactDate({
         fullName: "",
         email: "",
-        phone: 0,
+        phone: "",
         rForContact:"",
         message:"",
       })
@@ -79,7 +79,7 @@ const Contact = () => {
       setContactDate({
         fullName: "",
         email: "",
-        phone: 0,
+        phone: "",
         rForContact:"",
         message:"",
       })
@@ -112,7 +112,7 @@ const Contact = () => {
             initial="hidden"
             whileInView="visible"
             className="text-base opacity-90">
-            We&apos;d love to hear from you! Whether you&apos;re interested in requesting a demo, submitting your CV, or sharing feedback, feel free to reach out.
+             Whether you want to share your thoughts, seek assistance or simply connect, we are here to listen and respond.
           </motion.p>
         </div>
       </div>
@@ -152,7 +152,7 @@ const Contact = () => {
             <label htmlFor="phone" className='text-base font-semibold mb-5'>Phone number</label>
             <input 
               type="number" 
-              placeholder='Enter Phone Number' 
+              placeholder='Enter your registered Zangapay phone number' 
               value={contactDate.phone}
               name="phone"
               id='phone' 
@@ -165,7 +165,7 @@ const Contact = () => {
             <label htmlFor="contact" className='text-base font-semibold mb-5'>Reason for contact</label>
             <input 
             type="text"
-            placeholder='(optional)'
+            placeholder='Reason for contact'
             id='contact'
             value={contactDate.rForContact}
             name="rForContact" 
@@ -190,7 +190,7 @@ const Contact = () => {
 
 
         <div className='flex md:justify-end md:items-end mb-5 justify-center items-center pt-10'>
-        <button type='submit' className='flex bg-black p-3 items-center rounded-lg'>{sendIng ? "Submitting..." : "Submite Message" }<FaLongArrowAltRight className='ms-5'/> </button>
+        <button type='submit' className='flex bg-black p-3 items-center rounded-lg'>{sendIng ? "Submitting..." : "Submit Message" }<FaLongArrowAltRight className='ms-5'/> </button>
         </div>
       </div>
       </form>
