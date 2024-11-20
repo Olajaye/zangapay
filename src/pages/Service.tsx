@@ -1,7 +1,7 @@
 "use client"
 import Hero from '@/components/Hero'
 import Navbar from '@/components/Navbar'
-import { beVisible, slideInFromLeft,slideInFromRight  } from '@/lib/motion' 
+import { beVisible, slideInFromLeft  } from '@/lib/motion' 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
@@ -57,7 +57,7 @@ const Service = () => {
         </div>
 
 
-        <div className='grid grid-cols-2  gap-4  mt-7'>
+        <div className='grid grid-cols-1 md:grid-cols-2  gap-4  mt-7'>
 
           {services.map((service, index)=>(
             <div className='container mx-auto px-4 justify-between py-10' key={index}>
@@ -69,7 +69,7 @@ const Service = () => {
                 <Image src={service.image} alt="CEO" height={100} width={400} className='rounded-2xl'/>
               </motion.div>
               <div className='flex-1 flex justify-center items-center flex-col text-start mt-5'>
-                <div className='flex justify-center items-center px-20'>
+                <div className='flex justify-center items-center md:px-20'>
                   <motion.h6 
                     variants={slideInFromLeft(0.2)}
                     initial="hidden"
