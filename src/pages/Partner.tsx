@@ -11,7 +11,7 @@ import Navbar from '@/components/Navbar'
 import { ThankYouPopup } from '@/components/minicomponent/popUp'
 
 const Partner = () => {
-  // const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [sendIng, setSending] = useState(false)
   const [partnerDate, setPartnerDate] = useState({
@@ -27,12 +27,12 @@ const Partner = () => {
   
 
 
-  // const handleFileSelect = (e:React.ChangeEvent<HTMLInputElement>)=>{
-  //   if (e.target.files && e.target.files[0]) {
-  //     const file = e.target.files[0];
-  //     setSelectedFile(file);
-  //   }
-  // }
+  const handleFileSelect = (e:React.ChangeEvent<HTMLInputElement>)=>{
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      setSelectedFile(file);
+    }
+  }
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>{
     const {name, value} = e.target
@@ -45,19 +45,21 @@ const Partner = () => {
     const serviceId = "service_on492ey"
     const templateID = "template_8csvzv7"
     const publicKey = "V-B5QmL3ktPmX0Jqb"
-    // const serviceId = "service_rs4ikxf"
-    // const templateID = "template_ppt6jl6"
-    // const publicKey = "wRjb5an2kROXm-8_V"
 
-    // let fileData = "";
-    // if (selectedFile) {
-    //   fileData = await new Promise((resolve, reject) => {
-    //     const reader = new FileReader();
-    //     reader.readAsDataURL(selectedFile);
-    //     reader.onload = () => resolve(reader.result as string);
-    //     reader.onerror = error => reject(error);
-    //   });
-    // }
+    // const serviceId = "service_f9mn16i"
+    // const templateID = "template_ruh52zl"
+    // const publicKey = "t_pIAxg9QfhpiYJc5"
+  
+
+    let fileData = "";
+    if (selectedFile) {
+      fileData = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(selectedFile);
+        reader.onload = () => resolve(reader.result as string);
+        reader.onerror = error => reject(error);
+      });
+    }
 
     const data = {
       service_id: serviceId,
@@ -67,13 +69,14 @@ const Partner = () => {
         user_name: partnerDate.fullName,
         user_email: partnerDate.email,
         message: `Fulname: ${partnerDate.fullName}
-                  \nPhone: ${partnerDate.phone} 
-                  \n Address: ${partnerDate.address} 
-                  \n Area of Intrest: ${partnerDate.aOfIntrest} 
-                  \n Account Name: ${partnerDate.accountName}
-                  \n Account Number: ${partnerDate.accountNumber}
-                  \n Bank Name: ${partnerDate.bankName}`
-                  ,
+          \nPhone: ${partnerDate.phone} 
+          \n Address: ${partnerDate.address} 
+          \n Area of Intrest: ${partnerDate.aOfIntrest} 
+          \n Account Name: ${partnerDate.accountName}
+          \n Account Number: ${partnerDate.accountNumber}
+          \n Bank Name: ${partnerDate.bankName}
+          \n
+          \n`,
       }
     }
 
@@ -88,15 +91,17 @@ const Partner = () => {
         aOfIntrest:"",
         address:"",
       })
+      setSelectedFile(null)
       setSending(true)
       const res = await axios.post("https://api.emailjs.com/api/v1.0/email/send", data)
       if(res.data === "OK"){
         setSending(false)
-        // setSelectedFile(null)
         setIsPopupVisible(true)
       }
     } catch (error) {
        alert(`An error occourded ${error}`)
+       setSending(false)
+       
     }
   }
 
@@ -252,6 +257,25 @@ const Partner = () => {
                 onChange={handleOnChange}   
                 className='bg-white border-black border-[1px] w-full h-12 rounded-lg px-3 outline-none text-black'
               />
+            </div>
+          </div>
+
+          <div className='mt-7'> 
+            <div className="max-w-sm mx-auto p-6 bg-white border border-gray-300 rounded-lg shadow-md">
+            <label htmlFor="file" className="block text-gray-700 font-medium mb-2">
+              Choose a file
+            </label>
+            <input
+              id="file"
+              type="file"
+              onChange={handleFileSelect}
+              className="block w-full text-sm text-gray-500 file:border-0 file:bg-secondary file:text-sm file:font-semibold file:text-gray-700 file:py-2 file:px-4 file:rounded-full file:hover:bg-primary"
+            />
+            {selectedFile && (
+              <div className="mt-4 text-sm text-gray-600">
+                <strong>Selected file:</strong> {selectedFile.name}
+              </div>
+            )}
             </div>
           </div>
 

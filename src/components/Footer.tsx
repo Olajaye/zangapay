@@ -111,9 +111,9 @@ const Footer = () => {
           <div className="col-span-1">
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
-              <li><Link href="/company/privacy" className="hover:text-secondary">Privacy Policy</Link></li>
-              <li><Link href="/company/cookies" className="hover:text-secondary">Cookies</Link></li>
-              <li><Link href="/company/terms" className="hover:text-secondary">Terms of Service</Link></li>
+              <li><Link href="/privacypage" className="hover:text-secondary">Privacy Policy</Link></li>
+              <li><Link href="/cookiespage" className="hover:text-secondary">Cookies</Link></li>
+              <li><Link href="/termspage" className="hover:text-secondary">Terms of Service</Link></li>
             </ul>
           </div>
         </div>

@@ -14,7 +14,7 @@ import { motion } from 'framer-motion';
 const navigation =[
   {nav: "Home", link: "/"},
   {nav: "About", link: "/about"},
-  {nav: "Service", link: "/service"},
+  {nav: "Services", link: "/service"},
   {nav: "Contact", link: "/contact"},
   {nav: "Partner with us", link: "/partner"},
 ]
