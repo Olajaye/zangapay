@@ -61,6 +61,7 @@ const Partner = () => {
       });
     }
 
+    console.log(fileData)
     const data = {
       service_id: serviceId,
       template_id: templateID,
