@@ -74,7 +74,7 @@ export default function Partners() {
               Finally a better way to simplify payments
             </h1>
             <p className="text-gray-600 md:w-[50%] md:px-10 text-sm">
-              Zangapay is a Bill payment company. We are building an ecosystem to enable people to digitally Bills payments, and creating simple financial access for everyone
+              Zangapay is a bill payment company. We are building an ecosystem to enable people to make digital bill payments and create simple financial access for everyone.
             </p>
           </motion.div>
         </div>

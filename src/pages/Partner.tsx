@@ -263,25 +263,40 @@ const Partner = () => {
 
           <div className='mt-7'> 
             <div className="max-w-sm mx-auto p-6 bg-white border border-gray-300 rounded-lg shadow-md">
-            <label htmlFor="file" className="block text-gray-700 font-medium mb-2">
-              Choose a file
+            {/* <label htmlFor="file" className="block text-gray-700 font-medium mb-2">
+              Upload a picture of you
+            </label>
+
+            <input
+              id="file"
+              type="file"
+              placeholder='Upload picture'
+              onChange={handleFileSelect}
+              className="block w-full text-sm text-gray-500 file:border-0 file:bg-secondary file:text-sm file:font-semibold file:text-gray-700 file:py-2 file:px-4 file:rounded-full file:hover:bg-primary"
+            /> */}
+            <label htmlFor="file"
+                className="block w-full text-sm text-gray-500 bg-secondary py-2 px-4 rounded-full font-semibold cursor-pointer hover:bg-primary"
+            >
+                Upload Picture
             </label>
             <input
               id="file"
               type="file"
+              placeholder="Upload picture"
               onChange={handleFileSelect}
-              className="block w-full text-sm text-gray-500 file:border-0 file:bg-secondary file:text-sm file:font-semibold file:text-gray-700 file:py-2 file:px-4 file:rounded-full file:hover:bg-primary"
+              accept="image/*" 
+              className="hidden" 
             />
             {selectedFile && (
               <div className="mt-4 text-sm text-gray-600">
-                <strong>Selected file:</strong> {selectedFile.name}
+                <strong>Uploaded a picture:</strong> {selectedFile.name}
               </div>
             )}
             </div>
           </div>
 
           <div className='flex md:justify-end md:items-end mb-5 justify-center items-center pt-10'>
-            <button type='submit' className='flex bg-black p-3 items-center rounded-lg'>{sendIng ? "Submitting..." : "Submite Message" }<FaLongArrowAltRight className='ms-5'/> </button>
+            <button type='submit' className='flex bg-black p-3 items-center rounded-lg'>{sendIng ? "Submitting..." : "Submit Message" }<FaLongArrowAltRight className='ms-5'/> </button>
           </div>
         </div>
 
